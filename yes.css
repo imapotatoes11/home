@@ -106,6 +106,9 @@ body{
 #search{
     border: none;
     background-color: transparent;
+    /*cursor: pointer;*/
+}
+#searchicon{
     cursor: pointer;
 }
 
