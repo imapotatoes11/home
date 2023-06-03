@@ -18,6 +18,7 @@
                 <input id="search" type="button" value="" >
                 <svg onClick="search_func()" id="searchicon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" x2="16.65" y1="21" y2="16.65"></line></svg>
             </div>
+            <h2 id="out" style="font-size:16px; font-weight:300;"></h2>
 
             <script>
                 function key_down() {
@@ -30,6 +31,18 @@
                     } else{
                         document.getElementById("the").style.setProperty("--hover-shadow","0 1px 6px 0 rgba(32,33,36,0.28)")
                     }
+
+                    if (document.getElementById("text").value.toString().endsWith("=")){
+                        try{
+                            document.getElementById("out").innerText =
+                                document.getElementById("text").value.toString() +
+                                eval(document.getElementById("text").value.toString().slice(0,-1))
+                            document.getElementById("text").value = ""
+                        } catch (e) {
+                            console.log(e)
+                        }
+                    } // else { document.getElementById("out").innerText = "" }
+
                     if (event.keyCode === 13) {
                         search_func();
                     }
