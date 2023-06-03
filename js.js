@@ -36,9 +36,12 @@ document.addEventListener('DOMContentLoaded', function() {
         .getPropertyValue('--arc-palette-background') ? 'Is Arc' : 'Is Not Arc'
     )
 
-    setInterval(()=>{
-    if (isArc()){
-        document.getElementById("the-header").style.backgroundImage = "linear-gradient(-45deg, var(--arc-background-gradient-color1), var(--arc-palette-maxContrastColor), var(--arc-palette-foregroundPrimary), var(--arc-background-gradient-color0), var(--arc-background-gradient-overlay-color1), var(--arc-background-gradient-color1))"
-    }}, 100
-    )
+    if (!window.location.href.includes("?grad")) {
+        setInterval(() => {
+                if (isArc()) {
+                    document.getElementById("the-header").style.backgroundImage = "linear-gradient(-45deg, var(--arc-background-gradient-color1), var(--arc-palette-maxContrastColor), var(--arc-palette-foregroundPrimary), var(--arc-background-gradient-color0), var(--arc-background-gradient-overlay-color1), var(--arc-background-gradient-color1))"
+                }
+            }, 100
+        )
+    }
 });
