@@ -1,3 +1,7 @@
+function isArc(){
+    return !!getComputedStyle(document.documentElement)
+        .getPropertyValue('--arc-palette-background')
+}
 document.addEventListener('DOMContentLoaded', function() {
     // on each load select a random gradient from an array of gradients and make it the background
     if (window.location.href.includes("?grad")) {
@@ -54,4 +58,15 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.background = gradients[Math.floor(Math.random() * gradients.length)];
         document.body.style.backgroundSize = "400% 400%";
     }
+
+    console.log(
+        getComputedStyle(document.documentElement)
+        .getPropertyValue('--arc-palette-background') ? 'Is Arc' : 'Is Not Arc'
+    )
+
+    setInterval(()=>{
+    if (isArc()){
+        document.getElementById("the-header").style.backgroundImage = "linear-gradient(-45deg, var(--arc-background-gradient-color1), var(--arc-palette-maxContrastColor), var(--arc-palette-foregroundPrimary), var(--arc-background-gradient-color0), var(--arc-background-gradient-overlay-color1), var(--arc-background-gradient-color1))"
+    }}, 100
+    )
 });
