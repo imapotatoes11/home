@@ -35,7 +35,7 @@
                     if (document.getElementById("text").value.toString().endsWith("=")){
                         try{
                             document.getElementById("out").innerText =
-                                document.getElementById("text").value.toString() +
+                                document.getElementById("text").value.toString() + " " +
                                 eval(document.getElementById("text").value.toString().slice(0,-1))
                             document.getElementById("text").value = ""
                         } catch (e) {
