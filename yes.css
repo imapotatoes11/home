@@ -15,11 +15,11 @@
 }
 body{
     /*background: linear-gradient(45deg, var(--arc-background-gradient-color0) 0%, var(--arc-background-gradient-color1) 100%);*/
-    /*background-size: 400% 400%;*/
-    /*animation: moving-grad 15s ease infinite;*/
-    /*background-attachment: fixed;*/
-    /*background-repeat: no-repeat;*/
-    /*background-position: center;*/
+    background-size: 1000% 1000%;
+    animation: moving-grad 30s ease infinite;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 #outside{
     display: flex;
