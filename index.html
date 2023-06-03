@@ -21,6 +21,15 @@
 
             <script>
                 function key_down() {
+                    // console.log('keydown')
+                    // console.log(document.getElementById("text").value)
+                    // console.log(document.getElementById("text").value.startsWith("ph"))
+                    if (document.getElementById("text").value.toString().startsWith("ph")){
+                        console.log('yes?')
+                        document.getElementById("the").style.setProperty("--hover-shadow","0 2px 12px 0 rgba(62, 64, 162,0.75)")
+                    } else{
+                        document.getElementById("the").style.setProperty("--hover-shadow","0 1px 6px 0 rgba(32,33,36,0.28)")
+                    }
                     if (event.keyCode === 13) {
                         search_func();
                     }
@@ -40,14 +49,22 @@
 
                 function search_func() {
                     var text = document.getElementById("text").value;
-                    if (isValidUrl(text))
-                        if (text.toString().startsWith("http://") || text.toString().startsWith("https://"))
-                            window.open(text, "_blank");
-                        else
-                            window.open("https://" + text, "_blank");
-                    else {
-                        var url = "https://www.google.com/search?q=" + text;
+                    if (!text.startsWith("ph")) {
+                        if (isValidUrl(text))
+                            if (text.toString().startsWith("http://") || text.toString().startsWith("https://"))
+                                window.open(text, "_blank");
+                            else
+                                window.open("https://" + text, "_blank");
+                        else {
+                            var url = "https://www.google.com/search?q=" + text;
+                            window.open(url, "_blank");
+                        }
+                    } else {
+                        var url = "https://phind.com/search?q=" + text.substring(2);
                         window.open(url, "_blank");
+
+                        // reset the box shadow
+                        document.getElementById("the").style.setProperty("--hover-shadow","0 1px 6px 0 rgba(32,33,36,0.28)")
                     }
                     document.getElementById("text").value="";
                 }
