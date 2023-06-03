@@ -3,6 +3,8 @@ function isArc(){
         .getPropertyValue('--arc-palette-background')
 }
 document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById("text").focus()
+
     // on each load select a random gradient from an array of gradients and make it the background
     if (window.location.href.includes("?grad")) {
         document.getElementById("the").style.border = "2px solid #ffffff"
