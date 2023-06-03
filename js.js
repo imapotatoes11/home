@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.backgroundSize = "400% 400%";
             document.title = "Home (g)"
         }
-    })
+    }, 100)
 
     console.log(
         getComputedStyle(document.documentElement)
