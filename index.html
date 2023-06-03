@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="yes.css">
+    <script type="text/javascript" src="js.js"></script>
+</head>
+<body>
+    <div id="outside">
+        <!--we put everything here-->
+        <div id="inside">
+            <h1 style="font-size:48px">Hhhhhhhhh</h1>
+<!--            <input type="text" name="name" placeholder="yes" id="the">-->
+            <div id="the">
+                <input id="text" type="text" autocomplete="off" onkeydown="key_down()">
+                <input id="search" type="button" value="🔎" onClick="search_func()">
+            </div>
+
+            <script>
+                function key_down() {
+                    if (event.keyCode === 13) {
+                        search_func();
+                    }
+                }
+                function isValidUrl(string) {
+                    const pattern = new RegExp(
+                        '^([a-zA-Z]+:\\/\\/)?' + // protocol
+                        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
+                        '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+                        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+                        '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+                        '(\\#[-a-z\\d_]*)?$', // fragment locator
+                        'i'
+                    );
+                    return pattern.test(string);
+                }
+
+                function search_func() {
+                    var text = document.getElementById("text").value;
+                    if (isValidUrl(text))
+                        if (text.toString().startsWith("http://") || text.toString().startsWith("https://"))
+                            window.open(text, "_blank");
+                        else
+                            window.open("https://" + text, "_blank");
+                    else {
+                        var url = "https://www.google.com/search?q=" + text;
+                        window.open(url, "_blank");
+                    }
+                    document.getElementById("text").value="";
+                }
+            </script>
+
+        </div>
+    </div>
+</body>
+</html>

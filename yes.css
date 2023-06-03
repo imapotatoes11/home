@@ -1,0 +1,85 @@
+:root{
+    font-family: Marlin, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    --alternate-font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+#outside{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    height:75vh;
+}
+#inside{
+    justify-content:center;
+    align-items: center;
+    text-align: center;
+
+    width: 50%;
+}
+
+#the{
+    /* make it similar to the google search bar*/
+    border: 1px solid #dfe1e5;
+    border-radius: 24px;
+    box-shadow: none;
+    font-size: 16px;
+    height: 44px;
+    margin: 0 auto;
+    padding: 0 16px;
+
+    transition: .25s ease-out;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#the:hover{
+    border: 1px solid #dfe1e5;
+    border-radius: 24px;
+    box-shadow: none;
+    font-size: 16px;
+    height: 44px;
+    margin: 0 auto;
+    padding: 0 16px;
+    transition: .25s ease-out;
+    border: 1px solid #dfe1e5;
+    box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
+}
+#the:focus-within{
+    border: 1px solid #dfe1e5;
+    border-radius: 24px;
+    box-shadow: none;
+    font-size: 16px;
+    height: 44px;
+    margin: 0 auto;
+    padding: 0 16px;
+    transition: .25s ease-out;
+    border: 1px solid #dfe1e5;
+    box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
+}
+
+#text{
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    font-size: 16px;
+    height: 44px;
+    margin: 0;
+    padding: 0 16px;
+    color: #202124;
+    word-wrap: break-word;
+    outline: none;
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    /*text-align: center;*/
+
+}
+#text:focus{
+    outline: none;
+}
+
+#search{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
