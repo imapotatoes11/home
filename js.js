@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ];
         document.body.style.background = gradients[Math.floor(Math.random() * gradients.length)];
         document.body.style.backgroundSize = "400% 400%";
+        document.title="New Tab (g)"
     }
 
     console.log(
