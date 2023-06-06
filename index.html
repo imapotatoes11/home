@@ -28,9 +28,13 @@
                     if (document.getElementById("text").value.toString().startsWith("ph")){
                         // console.log('yes?')
                         document.getElementById("the").style.setProperty("--hover-shadow","0 2px 10px 0 rgba(62, 64, 162,0.6)")
+                    } else if (document.getElementById("text").value.toString().startsWith("gh")){
+                        // 162, 62, 140
+                        document.getElementById("the").style.setProperty("--hover-shadow","0 2px 10px 0 rgba(162, 62, 140,0.6)")
                     } else{
                         document.getElementById("the").style.setProperty("--hover-shadow","0 1px 6px 0 rgba(32,33,36,0.28)")
                     }
+
 
                     if (document.getElementById("text").value.toString().endsWith("=")){
                         try{
@@ -63,6 +67,14 @@
 
                 function search_func() {
                     var text = document.getElementById("text").value;
+
+                    if (text.startsWith('gh')) {
+                        if (text.substring(3).startsWith("imps")){
+                            window.open("https://github.com/imapotatoes11/" + text.substring(7), "_blank")
+                        }
+                        window.open("https://github.com/" + text.substring(3), "_blank")
+                    }
+
                     if (!text.startsWith("ph")) {
                         if (isValidUrl(text))
                             if (text.toString().startsWith("http://") || text.toString().startsWith("https://"))
@@ -70,14 +82,13 @@
                             else
                                 window.open("https://" + text, "_blank");
                         else {
-                            var url = "https://www.google.com/search?q=" + text;
-                            window.open(url, "_blank");
+                            window.open("https://www.google.com/search?q=" + text, "_blank");
                         }
                     } else {
-                        var url = "https://phind.com/search?q=" + text.substring(2);
-                        window.open(url, "_blank");
-                        // reset the box shadow
-                        document.getElementById("the").style.setProperty("--hover-shadow","0 1px 6px 0 rgba(32,33,36,0.28)")
+                            var url = "https://phind.com/search?q=" + text.substring(2);
+                            window.open(url, "_blank");
+                            // reset the box shadow
+                            document.getElementById("the").style.setProperty("--hover-shadow", "0 1px 6px 0 rgba(32,33,36,0.28)")
                     }
                     document.getElementById("text").value="";
                 }
