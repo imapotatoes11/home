@@ -68,14 +68,15 @@
                 function search_func() {
                     var text = document.getElementById("text").value;
 
-                    if (text.startsWith('gh')) {
-                        if (text.substring(3).startsWith("imps")){
-                            window.open("https://github.com/imapotatoes11/" + text.substring(7), "_blank")
-                        }
-                        window.open("https://github.com/" + text.substring(3), "_blank")
-                    }
-
-                    if (!text.startsWith("ph")) {
+                    if (text.startsWith("ph")) {
+                        var url = "https://phind.com/search?q=" + text.substring(2);
+                        window.open(url, "_blank");
+                        // reset the box shadow
+                        document.getElementById("the").style.setProperty("--hover-shadow", "0 1px 6px 0 rgba(32,33,36,0.28)")
+                    } else if (text.startsWith('gh')) {
+                        if (text.substring(3).startsWith("imps"))  window.open("https://github.com/imapotatoes11/" + text.substring(7), "_blank")
+                        else window.open("https://github.com/" + text.substring(3), "_blank")
+                    } else {
                         if (isValidUrl(text))
                             if (text.toString().startsWith("http://") || text.toString().startsWith("https://"))
                                 window.open(text, "_blank");
@@ -84,11 +85,6 @@
                         else {
                             window.open("https://www.google.com/search?q=" + text, "_blank");
                         }
-                    } else {
-                            var url = "https://phind.com/search?q=" + text.substring(2);
-                            window.open(url, "_blank");
-                            // reset the box shadow
-                            document.getElementById("the").style.setProperty("--hover-shadow", "0 1px 6px 0 rgba(32,33,36,0.28)")
                     }
                     document.getElementById("text").value="";
                 }
