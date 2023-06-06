@@ -35,6 +35,10 @@
                         document.getElementById("the").style.setProperty("--hover-shadow","0 1px 6px 0 rgba(32,33,36,0.28)")
                     }
 
+                    if (document.getElementById("text").value.toLowerCase().startsWith("rick rol")){
+                        window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank")
+                        setTimeout(() => document.getElementById("text").value = "", 100)
+                    }
 
                     if (document.getElementById("text").value.toString().endsWith("=")){
                         try{
