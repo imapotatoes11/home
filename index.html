@@ -40,6 +40,11 @@
                         setTimeout(() => document.getElementById("text").value = "", 100)
                     }
 
+                    if (document.getElementById("text").value.toLowerCase().startswith(".thissc")){
+                        window.open("https://www.youtube.com/watch?v=2ZIpFytCSVc", "_blank")
+                        setTimeout(() => document.getElementById("text").value = "", 100)
+                    }
+
                     if (document.getElementById("text").value.toString().endsWith("=")){
                         try{
                             document.getElementById("out").innerText =
