@@ -85,6 +85,8 @@
                     } else if (text.startsWith('gh')) {
                         if (text.substring(3).startsWith("imps"))  window.open("https://github.com/imapotatoes11/" + text.substring(7), "_blank")
                         else window.open("https://github.com/" + text.substring(3), "_blank")
+                    } else if (text.startsWith('t t')){
+                         window.location.href = 'https://kevin-wang.com/type'
                     } else {
                         if (isValidUrl(text))
                             if (text.toString().startsWith("http://") || text.toString().startsWith("https://"))
