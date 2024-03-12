@@ -42,6 +42,17 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             document.body.style.backgroundSize = "400% 400%";
             document.title = "Home (g)"
+        } else {
+            if (isArc()){
+                isArcYet = true;
+                document.querySelector("h1").style.backgroundImage = "linear-gradient(-45deg, var(--arc-background-gradient-color1), var(--arc-palette-maxContrastColor), var(--arc-palette-foregroundPrimary), var(--arc-background-gradient-color0), var(--arc-background-gradient-overlay-color1), var(--arc-background-gradient-color1))"}
+            else {
+                if (isArcYet)
+                    document.querySelector("h1").style.backgroundImage = "linear-gradient(-45deg, var(--arc-background-gradient-color1), var(--arc-palette-maxContrastColor), var(--arc-palette-foregroundPrimary), var(--arc-background-gradient-color0), var(--arc-background-gradient-overlay-color1), var(--arc-background-gradient-color1))"
+                else
+                    document.querySelector("h1").style.backgroundImage = gradd
+            }
+            document.title = "Home"
         }
     }, 100)
 
@@ -50,13 +61,63 @@ document.addEventListener('DOMContentLoaded', function() {
         .getPropertyValue('--arc-palette-background') ? 'Is Arc' : 'Is Not Arc'
     )
 
-    setInterval(() => {
-            if (isArc() && !window.location.href.includes("?grad")) {
-                document.getElementById("the-header").style.backgroundImage = "linear-gradient(-45deg, var(--arc-background-gradient-color1), var(--arc-palette-maxContrastColor), var(--arc-palette-foregroundPrimary), var(--arc-background-gradient-color0), var(--arc-background-gradient-overlay-color1), var(--arc-background-gradient-color1))"
-            }
-            else if (isArc())
-            {document.getElementById("the-header").style.backgroundImage = "none";
-            document.getElementById("the-header").style.color = "black";}
-        }, 100
-    )
+    // setInterval(() => {
+    //         if (isArc() && !window.location.href.includes("?grad")) {
+    //             document.getElementById("the-header").style.backgroundImage = "linear-gradient(-45deg, var(--arc-background-gradient-color1), var(--arc-palette-maxContrastColor), var(--arc-palette-foregroundPrimary), var(--arc-background-gradient-color0), var(--arc-background-gradient-overlay-color1), var(--arc-background-gradient-color1))"
+    //         }
+    //         else if (isArc())
+    //         {document.getElementById("the-header").style.backgroundImage = "none";
+    //         document.getElementById("the-header").style.color = "black";}
+    //     }, 100
+    // )
 });
+
+
+function toggleTooltip() {
+    var span = document.querySelector("#help")
+    span.classList.toggle("cooltipz--visible");
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    var isDark = localStorage.getItem('isDark');
+    if (isDark === 'true') {
+        toggleLDM()
+    }
+})
+
+function toggleLDM() {
+    var root = document.documentElement;
+
+    var mainBackgroundLight = getComputedStyle(root).getPropertyValue('--main-background-light');
+    var mainBackgroundDark = getComputedStyle(root).getPropertyValue('--main-background-dark');
+    var mainTextLight = getComputedStyle(root).getPropertyValue('--main-text-light');
+    var mainTextDark = getComputedStyle(root).getPropertyValue('--main-text-dark');
+    var mainBackground2Light = getComputedStyle(root).getPropertyValue('--main-background2-light');
+    var mainBackground2Dark = getComputedStyle(root).getPropertyValue('--main-background2-dark');
+    var shadowColorLight = getComputedStyle(root).getPropertyValue('--shadow-color-light');
+    var shadowColorDark = getComputedStyle(root).getPropertyValue('--shadow-color-dark');
+
+    root.style.setProperty('--main-background-light', mainBackgroundDark);
+    root.style.setProperty('--main-background-dark', mainBackgroundLight);
+    root.style.setProperty('--main-text-light', mainTextDark);
+    root.style.setProperty('--main-text-dark', mainTextLight);
+    root.style.setProperty('--main-background2-light', mainBackground2Dark);
+    root.style.setProperty('--main-background2-dark', mainBackground2Light);
+    root.style.setProperty('--shadow-color-light', shadowColorDark);
+    root.style.setProperty('--shadow-color-dark', shadowColorLight);
+
+    if (root.style.getPropertyValue('--is-dark') === 'true') {
+        root.style.setProperty('--is-dark', 'false');
+    } else {
+        root.style.setProperty('--is-dark', 'true');
+    }
+
+    var isDark = localStorage.getItem('isDark');
+    if (isDark === 'true') {
+        localStorage.setItem('isDark', 'false');
+    } else {
+        localStorage.setItem('isDark', 'true');
+    }
+
+    document.getElementById("text").focus()
+}

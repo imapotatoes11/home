@@ -6,8 +6,20 @@
     <link rel="stylesheet" href="yes.css">
     <script type="text/javascript" src="js.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cooltipz-css@2.3.0/cooltipz.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
+    <span id="help" class="material-symbols-outlined cooltipz--right"
+          aria-label=
+"gh imps: github.com/imapotatoes11 |
+gh <user(/repo)>:github.com/user(/repo) |
+ph <query>: phind.com/search?q=query |
+t t: kevin-wang.ca/type |
+cp: kevin-wang.ca/type/cp.html"
+          onclick="toggleTooltip()">question_mark</span>
+    <span onclick="toggleLDM()" class="material-symbols-outlined cooltipz--right" aria-label="Toggle Dark Mode" id="dark-mode">contrast</span>
     <div id="outside">
         <!--we put everything here-->
         <div id="inside">
